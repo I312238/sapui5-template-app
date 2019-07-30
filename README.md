@@ -9,7 +9,7 @@ _(This project is still under construction, so will change rapidly)_
 * [Node.js](https://nodejs.org/en/)
 * [Yarn](https://yarnpkg.com)
 
-### Build
+### Install Dependencies
 ```shell script
 $ bower install
 $ yarn
@@ -18,7 +18,9 @@ $ yarn
 ### Run
 Execute the command:
 ```shell script
-$ grunt serve
+$ set DEBUG=sapui5-template-app:* & yarn start
+or
+$ yarn start
 ```
 
 Then open your browser and navigate to http://localhost:3000
