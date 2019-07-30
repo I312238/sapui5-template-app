@@ -22,13 +22,16 @@ app.use('/resources', express.static(path.join(__dirname, 'bower_components/sapu
 //var indexRouter = require('./routes/index');
 //app.use('/', indexRouter);
 
-// Proxy settings
-app.use('/api/v1', proxy({
-    target: 'http://localhost:8080',
-    pathRewrite: {
-        '^/api/v1': '/api'
-    }
-}));
+// Proxy settings (development only)
+if (app.get('env') === 'development') {
+    app.use('/api/v1', proxy({
+        target: 'http://localhost:8080',
+        pathRewrite: {
+            '^/api/v1': '/api/v1'
+        },
+        logLevel: 'debug'
+    }));
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
